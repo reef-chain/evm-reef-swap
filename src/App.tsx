@@ -1170,7 +1170,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 overflow-x-auto w-full">
           <div className="grid grid-cols-[minmax(220px,1.6fr)_minmax(120px,1fr)_minmax(100px,0.8fr)_minmax(100px,0.9fr)_minmax(110px,0.9fr)_minmax(250px,1.2fr)] items-center gap-x-3 px-4 pb-2 text-[0.82rem] font-semibold text-[#202946]">
             <span>Pair</span>
             <span className="text-center">My Liquidity</span>
@@ -1180,7 +1180,7 @@ const App = () => {
             <span />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2 min-w-[800px]">
             {myPools.map((pool) => (
               <div
                 key={pool.id}

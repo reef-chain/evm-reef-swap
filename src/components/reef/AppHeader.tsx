@@ -38,9 +38,9 @@ const AppHeader = ({ activeRoute, onNavigate }: AppHeaderProps) => {
   }).format(balance);
   return (
     <>
-      <header className="flex items-center justify-between bg-[#f2f0f8] border-b border-border relative z-50 px-6 py-3">
+      <header className="flex flex-col md:flex-row items-center justify-between bg-[#f2f0f8] gap-4 md:gap-0 border-b border-border relative z-50 px-6 py-3">
         {/* Left side - Logo and Nav */}
-        <div className="flex items-center gap-8">
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 md:gap-8">
           <button
             type="button"
             className="flex items-center gap-1 bg-transparent border-0 p-0"
