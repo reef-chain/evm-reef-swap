@@ -48,10 +48,12 @@ const AppHeader = ({ activeRoute, onNavigate }: AppHeaderProps) => {
       {isConnected ? (
         <>
           {/* Balance display */}
-          <div className="flex items-center gap-3 rounded-full bg-[#f1edf8] px-5 py-3 shadow-sm">
-            <UiKit.ReefIcon className="h-7 w-7 text-[#7a3bbd]" />
+          <div className="flex items-center gap-3 rounded-full bg-[#f1edf8] px-4 py-2 shadow-sm border border-[#e2dcea]">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#a93185] to-[#5d3bad] shadow-sm flex-shrink-0">
+              <UiKit.ReefIcon className="h-5 w-5 text-white" />
+            </div>
             {isBalanceLoading ? (
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 pr-2">
                 {[0, 1, 2, 3].map((i) => (
                   <div
                     key={i}
@@ -61,7 +63,7 @@ const AppHeader = ({ activeRoute, onNavigate }: AppHeaderProps) => {
                 ))}
               </div>
             ) : (
-              <span className="bg-gradient-to-r from-[#a93185] to-[#5d3bad] bg-clip-text text-base font-semibold tracking-tight text-transparent">
+              <span className="pr-2 bg-gradient-to-r from-[#a93185] to-[#5d3bad] bg-clip-text text-base font-bold tracking-tight text-transparent">
                 {showBalances ? formattedBalance : '••••••'}
               </span>
             )}
