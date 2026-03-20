@@ -1,7 +1,6 @@
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { metaMask } from 'wagmi/connectors';
 import { useState } from 'react';
 import AccountModal from './AccountModal';
 import UiKit from '@reef-chain/ui-kit';
@@ -24,7 +23,7 @@ interface AppHeaderProps {
 
 const AppHeader = ({ activeRoute, onNavigate }: AppHeaderProps) => {
   const { address, isConnected, connector } = useAccount();
-  const { connect } = useConnect();
+  const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const [showAccountModal, setShowAccountModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -82,7 +81,7 @@ const AppHeader = ({ activeRoute, onNavigate }: AppHeaderProps) => {
         </>
       ) : (
         <Button
-          onClick={() => connect({ connector: metaMask() })}
+          onClick={() => connect({ connector: connectors[0] })}
           className="bg-gradient-to-r from-[#a93185] to-[#5d3bad] text-white rounded-[12px] px-6 hover:scale-105 hover:shadow-lg hover:brightness-110 active:scale-95 transition-all duration-200 ease-out"
         >
           Connect Wallet

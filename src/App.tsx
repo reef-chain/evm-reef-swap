@@ -431,9 +431,9 @@ const App = () => {
   };
 
   const connectWallet = async () => {
-    const connector = connectors.find((item) => item.id === 'metaMask') || connectors[0];
+    const connector = connectors.find((item) => item.id === 'injected' || item.id === 'metaMask') || connectors[0];
     if (!connector) {
-      showErrorToast('No injected wallet connector found. Install MetaMask first.');
+      showErrorToast('No injected wallet connector found.');
       return;
     }
 
@@ -446,7 +446,7 @@ const App = () => {
 
   const addReefChain = async (): Promise<boolean> => {
     if (!window.ethereum) {
-      showErrorToast('MetaMask extension not found in browser.');
+      showErrorToast('Web3 wallet not found in browser.');
       return false;
     }
 
@@ -1283,7 +1283,7 @@ const App = () => {
               </div>
               <h2 className="text-3xl font-semibold text-[#1b1530]">Connect to Reefswap</h2>
               <p className="mt-2 text-base text-[#8e899c]">
-                Connect MetaMask to view balances, activity, and swap tokens on Reef chain.
+                Connect Wallet to view balances, activity, and swap tokens on Reef chain.
               </p>
               <div className="mt-6 flex items-center gap-3 text-sm text-[#8e899c]">
                 <span className="rounded-full bg-white/70 px-3 py-1">Secure</span>
@@ -1314,7 +1314,7 @@ const App = () => {
               alt=""
               className="h-4 w-4"
             />
-            Add to MetaMask
+            Add Network
           </button>
         </footer>
       )}
